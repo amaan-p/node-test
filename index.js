@@ -4,7 +4,7 @@ const app = express();
 const PORT =process.nextTick.PORT||3001
 app.use(cors())
 app.use(express.json()); // Middleware to parse JSON request bodies
-
+app.use(express.static('dist'))
 let notes = [
   {
     id: "1",
