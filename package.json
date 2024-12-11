@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "dev": "node index.js",
+    "build:ui": "rd /s /q dist && cd ../frontend && npm run build && xcopy dist ..\\backend\\dist /e /i /y",
+    "deploy:full": "npm run build:ui && git add . && git commit -m \"uibuild\" && git push"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +14,9 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.1"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
